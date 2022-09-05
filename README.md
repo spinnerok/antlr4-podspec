@@ -1,2 +1,2 @@
 # antlr4-podspec
-Podspec for ANTLR (ANother Tool for Language Recognition)  porository
+This repository provides a podspec for [ANTLR](https://github.com/antlr/antlr4) (ANother Tool for Language Recognition) Swift runtime.
