@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
     s.name             = 'Antlr4'
-    s.version          = ENV['ANTLR4_VERSION'] || '4.10.1'
+    s.version          = ENV['ANTLR4_VERSION'] || '4.11.0'
     s.summary          = 'ANTLR runtime for iOS and macOS.'
 
     s.description      = <<-DESC
