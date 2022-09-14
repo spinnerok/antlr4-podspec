@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
     s.name             = 'Antlr4'
-    s.version          = ENV['ANTLR4_VERSION'] || '4.11.0'
+    s.version          = ENV['ANTLR4_VERSION'] || '4.11.1'
     s.summary          = 'ANTLR runtime for iOS and macOS.'
 
     s.description      = <<-DESC
@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
     s.license          = { :type => 'BSD 3-Clause license' }
     s.author           = { 'Terence Parr' => 'parrt@cs.usfca.edu', 'Serhiy Bobyr' => 'serhiy.bobyr@tomtom.com' }
     s.source           = { :git => 'https://github.com/antlr/antlr4.git', :tag => s.version.to_s }
-    s.source_files = 'runtime/Swift/Sources/Antlr4/**/*'
+    s.source_files     = 'runtime/Swift/Sources/Antlr4/**/*'
     
     s.social_media_url = 'https://twitter.com/the_antlr_guy'
 
