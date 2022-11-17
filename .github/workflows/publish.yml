@@ -5,31 +5,31 @@ on:
     branches:
       - main
     tags:
-      - '*'
+      - "*"
 
 jobs:
   build:
     runs-on: macos-latest
 
     steps:
-    - name: Check out code
-      uses: actions/checkout@v3
+      - name: Check out code
+        uses: actions/checkout@v3
 
-    - name: Get tag
-      id: tag
-      run: |
-        if [[ $GITHUB_REF == 'refs/tags/'* ]]; then
-            echo "TAG=${GITHUB_REF/refs\/tags\//}" >> $GITHUB_ENV
-        else
-            echo "TAG=" >> $GITHUB_ENV
-        fi
+      - name: Get tag
+        id: tag
+        run: |
+          if [[ $GITHUB_REF == 'refs/tags/'* ]]; then
+              echo "TAG=${GITHUB_REF/refs\/tags\//}" >> $GITHUB_ENV
+          else
+              echo "TAG=" >> $GITHUB_ENV
+          fi
 
-    - name: Publish CocoaPod
-      if: env.TAG != null
-      env:
-        COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
-      run: |
-        set -eo pipefail
-        export ANTLR4_VERSION=${{ env.TAG }}
-        pod spec lint Antlr4.podspec --skip-import-validation --allow-warnings
-        pod trunk push Antlr4.podspec --skip-import-validation --allow-warnings
+      - name: Publish CocoaPod
+        if: env.TAG != null
+        env:
+          COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
+        run: |
+          set -eo pipefail
+          export ANTLR4_VERSION=${{ env.TAG }}
+          pod spec lint Antlr4.podspec --skip-import-validation --allow-warnings
+          pod trunk push Antlr4.podspec --skip-import-validation --allow-warnings
